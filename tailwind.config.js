@@ -1,24 +1,34 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+const withMT = require("@material-tailwind/react/utils/withMT");
+
+module.exports = withMT({
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    fontFamily: {
-      sans: [
-        '"Inter var", sans-serif',
-        {
-          fontFeatureSettings: '"cv11", "ss01"',
-          fontVariationSettings: '"opsz" 32'
-        },
-      ],
+    screens: {
+      'mobile': '396px',
     },
     extend: {
       colors: {
-        primary: "#8300D3",
-        secondary: "#BD00FF"
-      }
+        white: "#fff",
+        "violet": "#8b5cf6",
+        "slate-500": "#64748b",
+        "darkslategray": "#263238",
+        dark: "#090314",
+        "mediumslateblue": "#8B5CF6",
+        "orange": "#FB923C",
+        "trans-grey": "#FFFFFF38"
+      },
+      spacing: {},
+      fontFamily: {
+        'mona-sans': ['Mona Sans', 'sans-serif'],
+        'plus-jakarta-sans': ['Plus Jakarta Sans', 'sans-serif'],
+      },
+    },
+    fontSize: {
+      inherit: "inherit",
     },
   },
-  plugins: [],
-}
+  corePlugins: {
+    preflight: false,
+  },
+});
